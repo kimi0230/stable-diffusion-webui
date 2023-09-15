@@ -11,7 +11,7 @@ fi
 
 export install_dir="$HOME"
 # export COMMANDLINE_ARGS="--skip-torch-cuda-test --upcast-sampling --no-half-vae --use-cpu interrogate"
-export COMMANDLINE_ARGS="--skip-torch-cuda-test --upcast-sampling --no-half-vae --xformers"
+export COMMANDLINE_ARGS="--skip-torch-cuda-test --upcast-sampling --no-half-vae --xformers --medvram"
 export TORCH_COMMAND="pip install torch==2.0.1 torchvision==0.15.2"
 export PYTORCH_ENABLE_MPS_FALLBACK=1
 
