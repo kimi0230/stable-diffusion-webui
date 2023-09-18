@@ -22,6 +22,12 @@ def create_api(app):
     api = Api(app, queue_lock)
     return api
 
+def create_websocket(app):
+    from modules.websocket.websocket import Websocket
+    websocket = Websocket(app)
+    return websocket
+
+
 
 def api_only():
     from fastapi import FastAPI
@@ -49,6 +55,7 @@ def webui():
     from modules.shared_cmd_options import cmd_opts
 
     launch_api = cmd_opts.api
+    launch_websocket = cmd_opts.websocket
     initialize.initialize()
 
     from modules import shared, ui_tempdir, script_callbacks, ui, progress, ui_extra_networks
@@ -110,6 +117,9 @@ def webui():
 
         if launch_api:
             create_api(app)
+        
+        if launch_websocket:
+            create_websocket(app)
 
         ui_extra_networks.add_pages_to_demo(app)
 
